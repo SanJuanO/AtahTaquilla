@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Reimprimir">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white">
+
+
+                <TextView
+                    android:id="@+id/tituloma"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:fontFamily="sans-serif"
+
+                    android:freezesText="true"
+                    android:gravity="center"
+                    android:lines="1"
+                    android:background="@color/aata"
+
+                    android:text="       Reimpresión"
+                    android:textAlignment="viewStart"
+                    android:textColor="@color/white"
+                    android:textSize="21sp"
+                    tools:ignore="RtlCompat" />
+
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/ll4"
+                    android:layout_below="@id/tituloma"
+                    android:weightSum="4"
+                    >
+
+
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_below="@id/ll4"
+                    android:id="@+id/lltd"
+                    android:layout_marginTop="20dp"
+
+                    >
+                    <LinearLayout
+                        android:layout_weight="2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:text="Escribe el motivo de reimpreción:"
+                            android:textColor="@color/aata"
+                            android:textSize="14dp" />
+
+                        <EditText
+                            android:id="@+id/motivotext"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/ablack"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:textSize="12dp" />
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:background="@color/aata" />
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+
+
+
+                <Button
+                    android:id="@+id/btnreimprimir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/ll4"
+                    android:layout_marginTop="100dp"
+                    android:layout_marginBottom="20dp"
+                    style="@style/btnred"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:text="Reimprimir boleto"
+                    />
+
+
+
+
+            </RelativeLayout>
+        </LinearLayout>
+
+
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

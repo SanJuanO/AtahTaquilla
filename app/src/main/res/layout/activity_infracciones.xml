@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Infracciones">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white">
+
+
+
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/ll4"
+android:layout_marginTop="20dp"                    android:weightSum="4"
+                    >
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/ll5"
+                    android:layout_below="@id/ll4"
+                    android:weightSum="4"
+                    >
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/ll6"
+                    android:layout_below="@id/ll5"
+                    android:weightSum="4"
+                    >
+                    <TextView
+                        android:id="@+id/t3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_below="@+id/dmodelo"
+                        android:text="Linea:"
+
+
+                        android:textColor="@color/aata"
+                        android:textSize="14dp" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="wrap_content">
+
+
+                        <Spinner
+                            android:id="@+id/linea"
+                            style="@style/spinner_style"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:foregroundTint="@color/aata" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="15dp"
+                            android:layout_weight="1"
+                            android:tint="@color/aata"
+                            app:srcCompat="@android:drawable/arrow_down_float" />
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/ll8"
+                    android:layout_below="@id/ll6"
+                    android:weightSum="4"
+                    >
+
+                    <TextView
+                        android:id="@+id/t5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+
+                        android:text="Destino:"
+
+
+                        android:textColor="@color/aata"
+                        android:textSize="14dp" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        android:id="@+id/spinerd"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="wrap_content">
+
+
+                        <Spinner
+                            android:id="@+id/destino"
+                            style="@style/spinner_style"
+                            android:layout_width="match_parent"
+
+                            android:layout_height="30dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:foregroundTint="@color/white" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="15dp"
+                            android:layout_weight="1"
+                            android:tint="@color/aata"
+                            app:srcCompat="@android:drawable/arrow_down_float" />
+
+                    </RelativeLayout>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/llh"
+                    android:layout_below="@id/ll8"
+                    android:weightSum="4"
+                    >
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:layout_marginLeft="10dp"
+
+                        android:text="Horario:"
+
+
+                        android:textColor="@color/aata"
+                        android:textSize="14dp" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="wrap_content">
+
+
+                        <Spinner
+                            android:id="@+id/horario"
+                            style="@style/spinner_style"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:foregroundTint="@color/white" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="15dp"
+                            android:layout_weight="1"
+                            android:tint="@color/aata"
+                            app:srcCompat="@android:drawable/arrow_down_float" />
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/llt"
+                    android:layout_below="@id/llh"
+                    android:weightSum="4"
+                    >
+
+                    <TextView
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:layout_marginLeft="10dp"
+
+                        android:text="Tarifa:"
+
+
+                        android:textColor="@color/aata"
+                        android:textSize="14dp" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="wrap_content">
+
+
+                        <Spinner
+                            android:id="@+id/tarifat"
+                            style="@style/spinner_style"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:foregroundTint="@color/white" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="15dp"
+                            android:layout_weight="1"
+                            android:tint="@color/aata"
+                            app:srcCompat="@android:drawable/arrow_down_float" />
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:id="@+id/totall"
+                    android:layout_below="@id/llt"
+                    android:weightSum="4"
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dp"
+                        android:layout_marginLeft="10dp"
+
+                        android:text="Total:"
+
+
+                        android:textColor="@color/aata"
+                        android:textSize="14dp" />
+
+
+                    <EditText
+                        android:id="@+id/total"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_below="@+id/t5"
+                        android:layout_marginTop="0dp"
+android:enabled="false"
+                        android:textColor="@color/ablack"
+                        android:textSize="14dp" />
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:background="@color/aata" />
+                </LinearLayout>
+
+
+
+                <Button
+                    android:id="@+id/button4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/totall"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"
+                    style="@style/btnred"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:text="Vender"
+                    />
+                <Button
+                    android:id="@+id/btnguia"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/button4"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"
+                    style="@style/btnred"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:text="Generar Guia"
+                    />
+            </RelativeLayout>
+        </LinearLayout>
+
+
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
