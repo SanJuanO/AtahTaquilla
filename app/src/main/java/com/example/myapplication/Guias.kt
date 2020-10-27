@@ -153,12 +153,13 @@ class Guias : Fragment() {
                         for (i in 0 until costos.length()) {
                             val producto = costos.getJSONObject(i)
 
-                            var planet = Planet("Folio: "+
+                            var planet = Planet("  Folio: "+
                                 producto.getString("folio"),
-                                "IMP: "+"$"+producto.getString("importe")+"  T.P: "+"$"+producto.getString("tpaso")+"  T.S: "+"$"+producto.getString("tsalida")+"  T.T: "+"$"+producto.getString("tturno")+"  IVA: "+"$"+producto.getString("iva")+"  TOTAL: "+"$"+producto.getString("total"),
-                               "Boletos: "+ producto.getString("boletos"),
-                                producto.getString("sucursal")+"-"+producto.getString("destino"),
-                                producto.getString("fecha"),
+                                "  IMP: "+"$"+producto.getString("importe")+"  T.P: "+"$"+producto.getString("tpaso")+"  T.S: "+"$"+producto.getString("tsalida")+
+                                        "  T.T: "+"$"+producto.getString("tturno")+"  IVA: "+"$"+producto.getString("iva")+ System.getProperty ("line.separator")+"  GASTOS: "+"$"+producto.getString("anticipo")+"  TOTAL: "+"$"+producto.getString("total"),
+                               "  Boletos: "+ producto.getString("boletos")+ "   ECO:"+ producto.getString("autobus"),
+                                " "+producto.getString("sucursal")+"-"+producto.getString("destino"),
+                                "     SALIDA: "+System.getProperty ("line.separator")+producto.getString("fecha")+ System.getProperty ("line.separator")+producto.getString("hora"),
                                 producto.getString("pk"),""
                             )
                             planetArrayList!!.add(planet)

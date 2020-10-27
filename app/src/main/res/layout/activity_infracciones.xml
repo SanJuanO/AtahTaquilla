@@ -14,16 +14,12 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/white">
-
-
-
-
 
 
                 <LinearLayout
@@ -58,12 +54,13 @@ android:layout_marginTop="20dp"                    android:weightSum="4"
                     android:layout_below="@id/ll5"
                     android:weightSum="4"
                     >
+
                     <TextView
                         android:id="@+id/t3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="25dp"
-                        android:layout_marginLeft="10dp"
+                        android:layout_width="48dp"
+                        android:layout_height="wrap_content"
                         android:layout_below="@+id/dmodelo"
+                        android:layout_marginLeft="10dp"
                         android:text="Linea:"
 
 
@@ -81,7 +78,7 @@ android:layout_marginTop="20dp"                    android:weightSum="4"
                             android:id="@+id/linea"
                             style="@style/spinner_style"
                             android:layout_width="match_parent"
-                            android:layout_height="30dp"
+                            android:layout_height="45dp"
                             android:layout_marginStart="10dp"
                             android:layout_marginEnd="10dp"
                             android:foregroundTint="@color/aata" />
@@ -133,7 +130,7 @@ android:layout_marginTop="20dp"                    android:weightSum="4"
                             style="@style/spinner_style"
                             android:layout_width="match_parent"
 
-                            android:layout_height="30dp"
+                            android:layout_height="45dp"
                             android:layout_marginStart="10dp"
                             android:layout_marginEnd="10dp"
                             android:foregroundTint="@color/white" />
@@ -161,8 +158,8 @@ android:layout_marginTop="20dp"                    android:weightSum="4"
 
                     <TextView
 
-                        android:layout_width="wrap_content"
-                        android:layout_height="25dp"
+                        android:layout_width="88dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
 
                         android:text="Horario:"
@@ -182,7 +179,7 @@ android:layout_marginTop="20dp"                    android:weightSum="4"
                             android:id="@+id/horario"
                             style="@style/spinner_style"
                             android:layout_width="match_parent"
-                            android:layout_height="30dp"
+                            android:layout_height="45dp"
                             android:layout_marginStart="10dp"
                             android:layout_marginEnd="10dp"
                             android:foregroundTint="@color/white" />
@@ -212,8 +209,8 @@ android:layout_marginTop="20dp"                    android:weightSum="4"
 
                     <TextView
 
-                        android:layout_width="wrap_content"
-                        android:layout_height="25dp"
+                        android:layout_width="62dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
 
                         android:text="Tarifa:"
@@ -233,7 +230,7 @@ android:layout_marginTop="20dp"                    android:weightSum="4"
                             android:id="@+id/tarifat"
                             style="@style/spinner_style"
                             android:layout_width="match_parent"
-                            android:layout_height="30dp"
+                            android:layout_height="45dp"
                             android:layout_marginStart="10dp"
                             android:layout_marginEnd="10dp"
                             android:foregroundTint="@color/white" />
@@ -260,11 +257,12 @@ android:layout_marginTop="20dp"                    android:weightSum="4"
                     android:layout_below="@id/llt"
                     android:weightSum="4"
                     >
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="25dp"
-                        android:layout_marginLeft="10dp"
 
+                    <TextView
+                        android:id="@+id/totaltexto"
+                        android:layout_width="47dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
                         android:text="Total:"
 
 
@@ -272,17 +270,19 @@ android:layout_marginTop="20dp"                    android:weightSum="4"
                         android:textSize="14dp" />
 
 
-                    <EditText
+                    <TextView
                         android:id="@+id/total"
-                        android:layout_width="match_parent"
+                        android:layout_width="169dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginEnd="10dp"
                         android:layout_below="@+id/t5"
+                        android:layout_marginStart="10dp"
+
                         android:layout_marginTop="0dp"
-android:enabled="false"
+                        android:layout_marginEnd="10dp"
+                        android:enabled="false"
                         android:textColor="@color/ablack"
-                        android:textSize="14dp" />
+                        android:textSize="18dp" />
+
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
@@ -293,26 +293,66 @@ android:enabled="false"
                 </LinearLayout>
 
 
-
-                <Button
-                    android:id="@+id/button4"
+                <LinearLayout
+                    android:id="@+id/ecoll"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/totall"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="20dp"
+                    android:orientation="vertical"
+                    android:weightSum="4">
+
+                    <TextView
+                        android:layout_width="66dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+
+                        android:text="Autobus:"
+
+
+                        android:textColor="@color/aata"
+                        android:textSize="14dp" />
+
+
+                    <TextView
+                        android:id="@+id/econombre"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/t5"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginEnd="10dp"
+
+                        android:enabled="false"
+                        android:textColor="@color/ablack"
+                        android:textSize="18dp" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="10dp"
+                        android:background="@color/aata" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/button4"
                     style="@style/btnred"
-                    android:layout_marginRight="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/ecoll"
                     android:layout_marginLeft="20dp"
-                    android:text="Vender"
-                    />
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:text="Vender" />
+
                 <Button
                     android:id="@+id/btnguia"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/button4"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="70dp"
                     style="@style/btnred"
                     android:layout_marginRight="20dp"
                     android:layout_marginLeft="20dp"

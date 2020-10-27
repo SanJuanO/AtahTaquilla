@@ -7,7 +7,6 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Build
 import android.os.Bundle
-import android.os.CountDownTimer
 import android.provider.MediaStore
 import android.util.Base64
 import android.util.Log
@@ -41,8 +40,6 @@ import java.io.IOException
 import java.io.UnsupportedEncodingException
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.concurrent.fixedRateTimer
-import kotlin.concurrent.schedule
 
 
 class Infracciones : Fragment() {
@@ -145,6 +142,7 @@ val a= preferencias.getInt("cantidadlineas",0)
 
          idlinea.add(preferencias.getString("pklinea"+i.toString(),"")!!)
          lineaaa.add(preferencias.getString("linea"+i.toString(),"")!!)
+            econombre.setText("")
         }
 
         val adapter0: ArrayAdapter<String> = ArrayAdapter<String>(requireActivity(), android.R.layout.simple_spinner_dropdown_item, lineaaa)
@@ -201,6 +199,7 @@ val a= preferencias.getInt("cantidadlineas",0)
                     horarios.clear()
                     descuento.clear()
                     pasaje.clear()
+                    econombre.setText("")
 
                     val adapter0: ArrayAdapter<String> = ArrayAdapter<String>(requireActivity(), android.R.layout.simple_spinner_dropdown_item, horarios)
                     adapter0.setDropDownViewResource(android.R.layout.simple_spinner_item)
@@ -255,6 +254,7 @@ SALIDA=horarios.get(i)
                 if(posiciondestino!="0"){
 
                     val des = destino.selectedItemPosition
+                    econombre.setText("")
 
                     DESTINO = destinoa.get(des)
 
@@ -540,7 +540,6 @@ val pko=pk_origen.toInt()
                             pasaje.add(producto2.getString("pasaje"))
                             descuento.add(producto2.getString("porcentaje"))
                             descuentop.add(producto2.getString("permitidos"))
-
 
 
                         }
@@ -838,6 +837,8 @@ if(SALID==SALIDA) {
     LINEA = producto.getString("linea")
     PKCORRIDA = producto.getString("pk")
     AUTOBUS = producto.getString("autobus")
+    econombre.setText(AUTOBUS)
+
     ASIENTO = "PIE"
     DESTINO_COMPLETO = producto.getString("destinO_COMPLETO")
     SALIDA = producto.getString("salida")

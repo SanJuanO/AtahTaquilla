@@ -125,11 +125,11 @@ class BoletosVendidos : Fragment() {
                         for (i in 0 until costos.length()) {
                             val producto = costos.getJSONObject(i)
 
-                            var planet = Planet(
+                            var planet = Planet("  Folio:"+
                                 producto.getString("folio"),
-                                "$"+producto.getString("precio")+"     "+   producto.getString("tarifa"),
-                                producto.getString("asiento"),
-                                producto.getString("sucursal")+"-"+producto.getString("destinoboleto"),
+                                "  Total:"+"$"+producto.getString("precio")+ System.getProperty ("line.separator")+"  Tarifa:"+   producto.getString("tarifa"),
+                                "  Asiento:"+producto.getString("asiento"),
+                                " "+producto.getString("sucursal")+"-"+producto.getString("destinoboleto"),
                                 producto.getString("salida"),
                                 producto.getString("pk"),""
                             )

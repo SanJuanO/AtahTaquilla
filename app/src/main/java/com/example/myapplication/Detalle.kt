@@ -1,16 +1,8 @@
 package com.example.myapplication
 
-import android.app.AlertDialog
 import android.app.ProgressDialog
-import android.content.Context
-import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.ArrayAdapter
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.DefaultRetryPolicy
@@ -19,16 +11,13 @@ import com.android.volley.Response
 import com.android.volley.VolleyError
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
-import com.example.myapplication.R
 
 import kotlinx.android.synthetic.main.activity_detalle.*
 import kotlinx.android.synthetic.main.activity_detalle.destino
-import kotlinx.android.synthetic.main.activity_detalle.total
-import kotlinx.android.synthetic.main.activity_infracciones.*
+import kotlinx.android.synthetic.main.activity_detalle.ecoautobus
 import org.json.JSONException
 import org.json.JSONObject
 import java.util.*
-import java.util.logging.Logger
 
 
 class Detalle : AppCompatActivity() {
@@ -178,7 +167,7 @@ finish()
                                 var _tota = totales.getString("total")
                                 escaneados.text = _escanead
                                 faltantes.text = _faltante
-                                total.text = _tota
+                                ecoautobus.text = _tota
 
 
                                 origen.text = "Origen: " + org

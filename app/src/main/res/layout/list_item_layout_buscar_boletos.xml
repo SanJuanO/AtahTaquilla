@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 android:text="COMPUTADORA HP"
-            android:textColor="@color/atex" />
+            android:textColor="@color/black" />
         <androidx.cardview.widget.CardView
             android:layout_width="20dp"
             android:layout_height="20dp"
@@ -48,6 +48,7 @@ android:layout_below="@id/titulon"
             android:textSize="12dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:lines="2"
             android:padding="1dp" />
 
         <TextView
@@ -64,6 +65,8 @@ android:layout_below="@id/ubicacionarean"
             android:layout_height="wrap_content"
             android:text="453543664"
             android:layout_below="@id/folion"
+            android:lines="2"
+
             android:textColor="@color/black"
             android:padding="1dp" />
         <TextView

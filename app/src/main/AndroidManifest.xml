@@ -20,14 +20,22 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Reimprimir"></activity>
         <activity android:name=".Reimprimir_guia"></activity>
-        <activity android:name=".GenerarGuia" />
+        <activity android:name=".GenerarGuia"
+            android:screenOrientation="portrait"
+
+            />
         <activity android:name=".Detalle" />
         <activity android:name=".Perfil" />
         <activity android:name=".Infracciones" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity"
+
+            android:screenOrientation="portrait"
+            />
         <activity android:name=".ListaBluetoohtActivity" />
         <activity android:name=".Escanear" />
-        <activity android:name=".Login">
+        <activity android:name=".Login"
+            android:screenOrientation="portrait"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

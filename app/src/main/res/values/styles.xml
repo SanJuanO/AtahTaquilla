@@ -25,7 +25,8 @@
 
 
     <style name="spinner_style" >
-        <item name="android:textSize">34dp</item>
+        <item name="android:textSize">65dp</item>
+        <item name="android:height">28dp</item>
 
         <item name="android:background">@drawable/edit</item>
         <item name="android:layout_marginLeft">10dp</item>

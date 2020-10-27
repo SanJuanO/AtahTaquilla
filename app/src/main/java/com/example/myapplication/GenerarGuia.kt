@@ -4,7 +4,6 @@ import android.app.AlertDialog
 import android.app.Dialog
 import android.app.ProgressDialog
 import android.content.Context
-import android.database.sqlite.SQLiteCantOpenDatabaseException
 import android.graphics.BitmapFactory
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -13,7 +12,6 @@ import android.text.TextWatcher
 import android.util.Base64
 import android.util.Log
 import android.view.View
-import android.widget.EditText
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -25,7 +23,6 @@ import com.example.myapplication.utilidades.PrintBitmap
 import com.example.myapplication.utilidades.Utilidades
 import kotlinx.android.synthetic.main.activity_generar_guia.*
 import net.glxn.qrgen.android.QRCode
-import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
 import java.io.IOException
@@ -127,11 +124,11 @@ infrome()
                 if(turno.equals("")){
                     TT=0.0
                     TOTAL = IMPORTE - IVA-GASTOS-TT-TP-TS
-                    total.setText("#"+"%.2f".format(TOTAL))
+                    ecoautobus.setText("#"+"%.2f".format(TOTAL))
                 }else {
                     TT=turno.toDouble()
                     TOTAL = IMPORTE - IVA-GASTOS-TT-TP-TS
-                    total.setText("#"+"%.2f".format(TOTAL))
+                    ecoautobus.setText("#"+"%.2f".format(TOTAL))
                 }
 
             }
@@ -151,12 +148,12 @@ infrome()
                 if(paso.equals("")){
                     TP=0.0
                     TOTAL = IMPORTE - IVA-GASTOS-TT-TP-TS
-                    total.setText("$"+"%.2f".format(TOTAL))
+                    ecoautobus.setText("$"+"%.2f".format(TOTAL))
                 }else {
                     TP=paso.toDouble()
 
                     TOTAL =  IMPORTE - IVA-GASTOS-TT-TP-TS
-                    total.setText("$"+"%.2f".format(TOTAL))
+                    ecoautobus.setText("$"+"%.2f".format(TOTAL))
                 }
 
             }
@@ -176,12 +173,12 @@ infrome()
                 if(salida.equals("")){
                     TS=0.0
                     TOTAL = IMPORTE - IVA-GASTOS-TT-TP-TS
-                    total.setText("$"+"%.2f".format(TOTAL))
+                    ecoautobus.setText("$"+"%.2f".format(TOTAL))
                 }else {
                     TS=salida.toDouble()
 
                     TOTAL =  IMPORTE - IVA-GASTOS-TT-TP-TS
-                    total.setText("$"+"%.2f".format(TOTAL))
+                    ecoautobus.setText("$"+"%.2f".format(TOTAL))
                 }
 
             }
@@ -201,13 +198,13 @@ infrome()
                 if(gasto.equals("")){
                     GASTOS=0.0
                     TOTAL = IMPORTE - IVA-GASTOS-TT-TP-TS
-                    total.setText("$"+"%.2f".format(TOTAL))
+                    ecoautobus.setText("$"+"%.2f".format(TOTAL))
                 }else {
 
                     GASTOS=gasto.toDouble()
 
                     TOTAL = IMPORTE - IVA-GASTOS-TT-TP-TS
-                    total.setText("$"+"%.2f".format(TOTAL))
+                    ecoautobus.setText("$"+"%.2f".format(TOTAL))
                 }
 
             }
@@ -227,13 +224,13 @@ infrome()
                 if(gasto.equals("")){
                     GASTOS=0.0
                     TOTAL = IMPORTE - IVA-GASTOS-TT-TP-TS
-                    total.setText("$"+"%.2f".format(TOTAL))
+                    ecoautobus.setText("$"+"%.2f".format(TOTAL))
                 }else {
 
                     GASTOS=gasto.toDouble()
 
                     TOTAL = IMPORTE - IVA-GASTOS-TT-TP-TS
-                    total.setText("$"+"%.2f".format(TOTAL))
+                    ecoautobus.setText("$"+"%.2f".format(TOTAL))
                 }
 
             }
@@ -270,55 +267,72 @@ infrome()
                     if (result == 1) {
 
                         planetArrayList!!.clear()
-var cant=0
+                        var cant = 0
                         adapter!!.notifyDataSetChanged()
 
                         val costos = response.getJSONArray("boletos")
                         val porcentajeiva = response["iva"] as Double
-                        val por=porcentajeiva  /100.00
+                        val por = porcentajeiva / 100.00
                         for (i in 0 until costos.length()) {
                             val producto = costos.getJSONObject(i)
-cant=cant+1
-                            if(i==costos.length()-1){
+                            cant = cant + 1
+                            if (i == costos.length() - 1) {
                                 FOLIOSVENDIDOS = FOLIOSVENDIDOS + producto.getString("pk")
 
-                            }else {
+                            } else {
                                 FOLIOSVENDIDOS = FOLIOSVENDIDOS + producto.getString("pk") + ","
                             }
-                       IMPORTE=IMPORTE+ producto.getString("precio").toDouble()
+                            IMPORTE = IMPORTE + producto.getString("precio").toDouble()
                             var planet = Planet(
                                 producto.getString("folio"),
                                 producto.getString("precio"),
                                 producto.getString("asiento"),
                                 "",
                                 producto.getString("tarifa"),
-                                "color",""
+                                "color", ""
                             )
                             planetArrayList!!.add(planet)
                         }
-                        BOLETOS= cant
+                        BOLETOS = cant
 
-                        IVA=IMPORTE*por
-                        TOTAL=IMPORTE-IVA
+                        IVA = IMPORTE * por
+                        TOTAL = IMPORTE - IVA
                         val producto2 = response.getJSONObject("corrida")
 
 
 
+                        if (costos.length() == 0) {
+origen.setText(ORIGEN)
+                            salida.setText(HORA)
+                            destino.setText(DESTINO)
+                            autobus.setText(AUTOBUS)
+                            boletos.setText(cant.toString())
+                            aportacion.setText("$0.00")
+                            tt.setText("0")
+                            tp.setText("0")
+                            ts.setText("0")
+                            gastos.setText("0")
+                            importe.setText("$" + "0.0")
+                            iva.setText("$" + "0.0")
+                            ecoautobus.setText("$" + "0.0")
 
+                        }else{
                         origen.setText(producto2.getString("origeN_COMPLETO"))
                         destino.setText(producto2.getString("destinO_COMPLETO"))
-                        boletos.setText(cant.toString())
+                            salida.setText(HORA)
+
+                            boletos.setText(cant.toString())
                         autobus.setText(producto2.getString("autobus"))
                         aportacion.setText("$0.00")
                         tt.setText("0")
                         tp.setText("0")
                         ts.setText("0")
                         gastos.setText("0")
-                        importe.setText("$"+"%.2f".format(IMPORTE))
-                        iva.setText("$"+"%.2f".format(IVA))
-                        total.setText("$"+"%.2f".format(TOTAL))
+                        importe.setText("$" + "%.2f".format(IMPORTE))
+                        iva.setText("$" + "%.2f".format(IVA))
+                        ecoautobus.setText("$" + "%.2f".format(TOTAL))
 
-
+                    }
 
 
                         adapter!!.notifyDataSetChanged()

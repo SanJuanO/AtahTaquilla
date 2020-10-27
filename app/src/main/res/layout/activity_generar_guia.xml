@@ -138,13 +138,61 @@
 
                     </LinearLayout>
                 </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_below="@id/lltd"
+                    android:id="@+id/llts"
+                    android:layout_marginTop="20dp"
+
+                    android:weightSum="4"
+                    >
+                    <LinearLayout
+                        android:layout_weight="2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:text="Salida:"
+                            android:textColor="@color/aata"
+                            android:textSize="14dp" />
+
+                        <TextView
+                            android:id="@+id/salida"
+                            android:enabled="false"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/ablack"
+
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:textSize="12dp" />
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="1dp"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:background="@color/aata" />
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
 
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_below="@id/lltd"
+                    android:layout_below="@id/llts"
                     android:id="@+id/lltb"
                     android:layout_marginTop="20dp"
 
@@ -549,7 +597,7 @@
                             android:textSize="14dp" />
 
                         <TextView
-                            android:id="@+id/total"
+                            android:id="@+id/ecoautobus"
                             android:enabled="false"
                             android:layout_width="match_parent"
                             android:layout_height="32dp"
