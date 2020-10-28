@@ -8,6 +8,8 @@ import android.graphics.BitmapFactory
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Base64
 import android.util.Log
 import android.view.LayoutInflater
@@ -171,7 +173,15 @@ val a= preferencias.getInt("cantidadlineas",0)
 
             }
         })
-
+        total.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
+            }
+            override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
+            }
+            override fun afterTextChanged(editable: Editable) {
+                PRECIO = total.text.toString()
+            }
+        })
 
         button4.setOnClickListener(View.OnClickListener {
             if (bluetoothSocket != null) {
@@ -227,7 +237,7 @@ TARIFA=pasaje.get(des)
 
                 val porcentaje=descuent/100
                 val tota= tarifa-tarifa*(porcentaje)
-                total.setText("$"+tota)
+                total.setText(tota.toString())
                 PRECIO=tota.toString()
             }
 
@@ -263,7 +273,7 @@ SALIDA=horarios.get(i)
                     val porcentaje=descuent/100
                     val tota= tarifa-tarifa*(porcentaje)
                     PRECIO=tota.toString()
-                    total.setText("$"+tota)
+                    total.setText(tota.toString())
                     consultarhorarios()
                 }
             }
