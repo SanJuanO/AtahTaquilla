@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+
 import android.app.Activity
 import android.app.ProgressDialog
 import android.bluetooth.BluetoothAdapter
@@ -19,13 +20,8 @@ import com.android.volley.Response
 import com.android.volley.VolleyError
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
-import com.bumptech.glide.util.Util
 import com.example.myapplication.utilidades.Utilidades
-
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import kotlinx.android.synthetic.main.activity_infracciones.*
-
-
 import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONException
 import org.json.JSONObject
@@ -90,8 +86,12 @@ public class MainActivity : AppCompatActivity() {
 
     }
     override fun onBackPressed() { // Añade más funciones si fuese necesario
-        finish()
+        val startMain = Intent(Intent.ACTION_MAIN)
+        startMain.addCategory(Intent.CATEGORY_HOME)
+        startMain.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+        startActivity(startMain)
     }
+
 
     private fun cerrarConexion() {
         try {
