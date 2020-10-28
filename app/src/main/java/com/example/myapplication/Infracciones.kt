@@ -301,6 +301,8 @@ SALIDA=horarios.get(i)
                     PRECIO=tota.toString()
 //                    total.setText(tota.toString())
                     consultarhorarios()
+                    corrida()
+
                 }
             }
 
@@ -635,7 +637,6 @@ val pko=pk_origen.toInt()
                         tarifat.setAdapter(adapter)
 
 
-                        corrida()
                     } else {
                         val error = response.getString("mensaje")
                     }
@@ -762,28 +763,42 @@ var t = TARIFA
                                 org2 = org2 + " "
                             }
                         }
-                        try {
-                            val texto1 = "FECHA:" + FECHA + "  LINEA:" + LINEA + "\n"
-                            // val texto11 = FECHA+ "  "+LINEA+"\n"
-                            val texto2 = "FOLIO:" + folio + "   AUTOBUS:" + AUTOBUS + "\n"
-                            // val texto22 = folio+ "  "+AUTOBUS+"\n"
-                            val texto3 = "ASIENTO:" + ASIENTO + "      SALIDA:" + SALIDA + "\n"
-                            //  val texto33 =  ASIENTO+ "  "+PASAJERO+"\n"
-                            val texto4 = "ORIGEN:" + "          DESTINO:" + "\n"
-                            val texto44 = org2 + " " + DESTINO + "\n"
 
+                        var DESTINO2 = DESTINO
+                        if (DESTINO.length > 18) {
+                     DESTINO2=DESTINO.substring( 0, 17)
+
+                            DESTINO2 = DESTINO2 + "..."
+
+                        }
+
+
+                        try {
+                            val texto1 = "FECHA:" + FECHA
+                            val tlinea  =  "  LINEA:" + LINEA + "\n"
+                            // val texto11 = FECHA+ "  "+LINEA+"\n"
+                            val texto2 = "            " + folio+"          "
+                            val tautobus= "     AUTOBUS:" + AUTOBUS + "\n"
+                            // val texto22 = folio+ "  "+AUTOBUS+"\n"
+                            val texto3 = "ASIENTO:" + ASIENTO
+                            val tsalida= " SALIDA:" + SALIDA + "\n"
+
+                            //  val texto33 =  ASIENTO+ "  "+PASAJERO+"\n"
+                            val texto4 = "ORIGEN:"+org2
+                            val textodest="DESTINO:"+"\n"
+val tdestino= DESTINO2 + "\n"
 
                             //     val texto5 = "          SALIDA:"+"\n"
                             //   val texto55 = "       "+SALIDA+"\n"
 
 
-                            val texto6 = "PAGO:EFECTIVO   PRECIO:$" + PRECIO + "\n"
+                            val texto6 = "PAGO:EFECTIVO  PRECIO:$" + PRECIO + "\n"
                             // val texto66 =
                             //"EFECTIVO" + "                     " + "#" + PRECIO + ".00"
                             val texto666 =
-                                "PRESENTE IDENTIFICACIÓN ORIGINAL Y VIGENTE AL MOMENTO DE ABORDAR.\n"
+                                "Presente identificación original y vigenete al momento de abordar.\n"
                             val texto6666 =
-                                "La transportista no es responsable de este servicio.\nAtención a clientes: 01 800 836 0726,\n Consulta terminos y condiciónes en www.atah.online\n\n\n"
+                                "Atención a clientes: 01 800 836 0726 \nTterminos y condiciónes www.atah.online\n\n\n"
 
 
                             val fuente1 = 1
@@ -806,7 +821,7 @@ var t = TARIFA
                             outputStream!!.write(
                                 PrintBitmap.POS_PrintBMP(
                                     bitmap,
-                                    320,
+                                    100,
                                     MODE_PRINT_IMG
                                 )
                             )
@@ -819,19 +834,64 @@ var t = TARIFA
                                 getByteString(
                                     texto1,
                                     negrita,
+                                    fuente1,
+                                    ancho,
+                                    alto
+                                )
+                            )
+
+                            outputStream!!.write(
+                                getByteString(
+                                    tlinea,
+                                    negrita,
                                     fuente,
                                     ancho,
                                     alto
                                 )
                             )
-                            //    outputStream!!.write(getByteString(texto11, negrita1, fuente1, ancho, alto))
                             outputStream!!.write(
                                 getByteString(
-                                    texto2,
+                                    texto4,
                                     negrita,
                                     fuente,
                                     ancho,
                                     alto
+                                )
+                            )
+
+
+                            outputStream!!.write(
+                                getByteString(
+                                    textodest,
+                                    0,
+                                    fuente1,
+                                    0,
+                                    0
+                                )
+                            )
+
+
+                            outputStream!!.write(
+                                getByteString(
+                                    tdestino,
+                                    1,
+                                    fuente1,
+                                    1,
+                                    1
+                                )
+                            )
+
+
+
+                            //    outputStream!!.write(getByteString(texto11, negrita1, fuente1, ancho, alto))
+
+                            outputStream!!.write(
+                                getByteString(
+                                    tautobus,
+                                    2,
+                                    fuente1,
+                                    1,
+                                    1
                                 )
                             )
                             //  outputStream!!.write(getByteString(texto22, negrita1, fuente1, ancho, alto))
@@ -844,25 +904,17 @@ var t = TARIFA
                                     alto
                                 )
                             )
+                            outputStream!!.write(
+                                getByteString(
+                                    tsalida,
+                                    2,
+                                    fuente1,
+                                    1,
+                                    1
+                                )
+                            )
                             // outputStream!!.write(getByteString(texto33, negrita1, fuente1, ancho, alto))
-                            outputStream!!.write(
-                                getByteString(
-                                    texto4,
-                                    negrita,
-                                    fuente,
-                                    ancho,
-                                    alto
-                                )
-                            )
-                            outputStream!!.write(
-                                getByteString(
-                                    texto44,
-                                    negrita,
-                                    fuente,
-                                    ancho,
-                                    alto
-                                )
-                            )
+
 
                             //outputStream!!.write(getByteString(texto5, negrita, fuente, ancho, alto))
                             //outputStream!!.write(getByteString(texto55, negrita1, fuente1, ancho2, alto))
@@ -937,15 +989,23 @@ var t = TARIFA
                             } catch (e: Exception) {
                                 val a = e
                             }
-
+                            outputStream!!.write(
+                                getByteString(
+                                    texto2,
+                                    negrita,
+                                    fuente,
+                                    ancho,
+                                    alto
+                                )
+                            )
                             outputStream.write("\n".toByteArray())
                             outputStream!!.write(
                                 getByteString(
                                     texto666,
                                     negrita,
                                     fuente1,
-                                    ancho,
-                                    alto
+                                    0,
+                                    0
                                 )
                             )
                             outputStream!!.write(
@@ -953,8 +1013,8 @@ var t = TARIFA
                                     texto6666,
                                     negrita,
                                     fuente1,
-                                    ancho,
-                                    alto
+                                    0,
+                                    0
                                 )
                             )
 
@@ -996,13 +1056,13 @@ var t = TARIFA
 
     fun corrida() {
 
-        val progressDialog = ProgressDialog(
-            requireActivity(),
-            R.style.Theme_AppCompat_Light_Dialog
-        )
-        progressDialog.isIndeterminate = true
-        progressDialog.setMessage("Cargando datos...")
-        progressDialog.show()
+//        val progressDialog = ProgressDialog(
+//            requireActivity(),
+//            R.style.Theme_AppCompat_Light_Dialog
+//        )
+//        progressDialog.isIndeterminate = true
+//        progressDialog.setMessage("Cargando datos...")
+//        progressDialog.show()
         val preferencias = this.requireActivity().getSharedPreferences(
             "variables",
             Context.MODE_PRIVATE
@@ -1029,7 +1089,7 @@ var t = TARIFA
             Method.POST, "https://appis.atah.online/api/Corridas/CorridasByFechaOrigenLinea", datos,
             Response.Listener { response ->
                 try {
-                    progressDialog?.dismiss()
+//                    progressDialog?.dismiss()
                     val result = response["result"] as Int
                     if (result == 1) {
 
@@ -1078,7 +1138,7 @@ var t = TARIFA
                 }
             },
             Response.ErrorListener { error ->
-                progressDialog?.dismiss()
+//                progressDialog?.dismiss()
                 Log.e("Rest Response", error.toString())
             }
         ) { //here I want to post data to sever

@@ -302,32 +302,33 @@ infrome()
 
 
                         if (costos.length() == 0) {
-origen.setText(ORIGEN)
-                            salida.setText(HORA)
-                            destino.setText(DESTINO)
-                            autobus.setText(AUTOBUS)
-                            boletos.setText(cant.toString())
-                            aportacion.setText("$0.00")
-                            tt.setText("0")
-                            tp.setText("0")
-                            ts.setText("0")
-                            gastos.setText("0")
-                            importe.setText("$" + "0.0")
-                            iva.setText("$" + "0.0")
-                            ecoautobus.setText("$" + "0.0")
+//origen.setText(ORIGEN)
+//                            salida.setText(HORA)
+//                            destino.setText(DESTINO)
+//                            autobus.setText(AUTOBUS)
+//                            boletos.setText(cant.toString())
+//                            aportacion.setText("$0.00")
+//                            tt.setText("")
+//                            tp.setText("")
+//                            ts.setText("")
+//                            gastos.setText("")
+//                            importe.setText("$" + "0.0")
+//                            iva.setText("$" + "0.0")
+//                            ecoautobus.setText("$" + "0.0")
+                            salirerror()
 
                         }else{
-                        origen.setText(producto2.getString("origeN_COMPLETO"))
+                            origen.setText(ORIGEN)
                         destino.setText(producto2.getString("destinO_COMPLETO"))
                             salida.setText(HORA)
 
                             boletos.setText(cant.toString())
                         autobus.setText(producto2.getString("autobus"))
                         aportacion.setText("$0.00")
-                        tt.setText("0")
-                        tp.setText("0")
-                        ts.setText("0")
-                        gastos.setText("0")
+                        tt.setText("")
+                        tp.setText("")
+                        ts.setText("")
+                        gastos.setText("")
                         importe.setText("$" + "%.2f".format(IMPORTE))
                         iva.setText("$" + "%.2f".format(IVA))
                         ecoautobus.setText("$" + "%.2f".format(TOTAL))
@@ -340,15 +341,21 @@ origen.setText(ORIGEN)
 
                     } else {
                         val error = response.getString("mensaje")
+                        salirerror()
                     }
                 } catch (e: JSONException) {
                     e.printStackTrace()
+                    salirerror()
                 }
             },
             Response.ErrorListener { error ->
+                salirerror()
                 Log.e("Rest Response", error.toString())
             }
-        ) { //here I want to post data to sever
+        ) {
+
+
+//here I want to post data to sever
         }
         val MY_SOCKET_TIMEOUT_MS = 15000
         val maxRetries = 2
@@ -602,5 +609,24 @@ btnguia.isEnabled=false
         command[8] = (intToWidth[widthsize] + intToHeight[heigthsize]).toByte()
         System.arraycopy(strData, 0, command, 9, strData.size)
         return command
+    }
+    fun salirerror()
+    {
+        val builder = AlertDialog.Builder(this)
+
+        // Set the alert dialog title
+        builder.setTitle("Guia")
+
+        // Display a message on alert dialog
+        builder.setMessage("Sin boletos para esta guia")
+        // Set a positive button and its click listener on alert dialog
+        builder.setPositiveButton("Aceptar") { dialog, which ->
+            // Do something when user press the positive button
+            finish()
+
+            // Display a negative button on alert dialog
+        }
+        builder.show()
+
     }
 }

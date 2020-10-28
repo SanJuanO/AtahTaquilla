@@ -58,17 +58,7 @@ android:layout_marginTop="20dp"                    android:weightSum="4"
                     android:weightSum="4"
                     >
 
-                    <TextView
-                        android:id="@+id/t3"
-                        android:layout_width="48dp"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/dmodelo"
-                        android:layout_marginLeft="10dp"
-                        android:text="Linea:"
 
-
-                        android:textColor="@color/aata"
-                        android:textSize="14dp" />
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -112,37 +102,15 @@ android:layout_marginTop="20dp"                    android:weightSum="4"
                     android:weightSum="4"
                     >
 
-                    <TextView
-                        android:id="@+id/t5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-
-                        android:text="Destino:"
-
-
-                        android:textColor="@color/aata"
-                        android:textSize="14dp" />
 
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:orientation="horizontal"
                         android:id="@+id/spinerd"
-                        android:layout_marginTop="10dp"
                         android:layout_height="wrap_content">
 
 
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_marginTop="10dp"
-                            android:layout_marginRight="15dp"
-                            android:layout_weight="1"
-                            android:tint="@color/aata"
-                            app:srcCompat="@android:drawable/arrow_down_float" />
 
-                    </RelativeLayout>
 
                     <Spinner
                         android:id="@+id/destino"
@@ -155,6 +123,18 @@ android:layout_marginTop="20dp"                    android:weightSum="4"
                         android:layout_marginEnd="10dp"
                         android:foregroundTint="@color/white"
                         android:spinnerMode="dialog" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginRight="15dp"
+                            android:layout_weight="1"
+                            android:tint="@color/aata"
+                            app:srcCompat="@android:drawable/arrow_down_float" />
+                    </RelativeLayout>
+
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -165,17 +145,7 @@ android:layout_marginTop="20dp"                    android:weightSum="4"
                     android:weightSum="4"
                     >
 
-                    <TextView
 
-                        android:layout_width="88dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-
-                        android:text="Horario:"
-
-
-                        android:textColor="@color/aata"
-                        android:textSize="14dp" />
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -219,17 +189,6 @@ android:layout_marginTop="20dp"                    android:weightSum="4"
                     android:weightSum="4"
                     >
 
-                    <TextView
-
-                        android:layout_width="62dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-
-                        android:text="Tarifa:"
-
-
-                        android:textColor="@color/aata"
-                        android:textSize="14dp" />
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -272,24 +231,13 @@ android:layout_marginTop="20dp"                    android:weightSum="4"
                     android:weightSum="4"
                     >
 
-                    <TextView
-                        android:id="@+id/totaltexto"
-                        android:layout_width="47dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:text="Total:"
-
-
-                        android:textColor="@color/aata"
-                        android:textSize="14dp" />
-
 
 
                     <NumberPicker
                         android:id="@+id/numberPicker"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
-                        style="@style/spinner_style"
+                        style="@style/precio"
                         />
 
                     <View

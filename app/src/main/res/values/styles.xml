@@ -38,11 +38,12 @@
         <item name="android:paddingBottom">5dp</item>
     </style>
     <style name="precio" >
-        <item name="android:textSize">65dp</item>
+        <item name="android:textSize">65sp</item>
         <item name="android:height">28dp</item>
-
-
-        <item name="android:textColor">@color/aata</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:background">@drawable/edit</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
         <item name="android:layout_marginBottom">10dp</item>
         <item name="android:paddingLeft">8dp</item>
         <item name="android:paddingTop">5dp</item>
