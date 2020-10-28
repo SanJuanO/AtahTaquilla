@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/escanear"
-        android:icon="?attr/actionModeSelectAllDrawable"
-        android:title="Escanear"
-
-        />
-    <item
         android:id="@+id/infracciones"
         android:icon="@drawable/autobus"
         android:title="Venta"
 
         />
+    <item
+        android:id="@+id/escanear"
+        android:icon="?attr/actionModeSelectAllDrawable"
+        android:title="Escanear"
+
+        />
+
     <item
         android:id="@+id/boletos"
         android:icon="?attr/actionModePasteDrawable"

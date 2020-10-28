@@ -192,17 +192,17 @@ val a= preferencias.getInt("cantidadlineas", 0)
 
             }
         })
-        total.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
-            }
-
-            override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
-            }
-
-            override fun afterTextChanged(editable: Editable) {
-                PRECIO = total.text.toString()
-            }
-        })
+//        total.addTextChangedListener(object : TextWatcher {
+//            override fun beforeTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
+//            }
+//
+//            override fun onTextChanged(charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
+//            }
+//
+//            override fun afterTextChanged(editable: Editable) {
+//                PRECIO = total.text.toString()
+//            }
+//        })
 
         button4.setOnClickListener(View.OnClickListener {
             if (bluetoothSocket != null) {
@@ -262,8 +262,9 @@ TARIFA=pasaje.get(des)
 
                 val porcentaje=descuent/100
                 val tota= tarifa-tarifa*(porcentaje)
-                total.setText(tota.toString())
                 PRECIO=tota.toString()
+                numberPicker.value = tota.toInt()
+
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {
@@ -298,7 +299,7 @@ SALIDA=horarios.get(i)
                     val porcentaje=descuent/100
                     val tota= tarifa-tarifa*(porcentaje)
                     PRECIO=tota.toString()
-                    total.setText(tota.toString())
+//                    total.setText(tota.toString())
                     consultarhorarios()
                 }
             }
@@ -310,7 +311,24 @@ SALIDA=horarios.get(i)
 
         val imm = requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(view!!.getWindowToken(), 0)
-    }
+
+
+
+
+        //spinner
+
+
+
+            numberPicker.minValue = 0
+            numberPicker.maxValue =400
+            numberPicker.value = 5
+
+            numberPicker.setOnValueChangedListener { picker, oldVal, newVal ->
+PRECIO=numberPicker.value.toString()
+
+        }
+
+        }
 
 
     fun validar() {
@@ -759,9 +777,9 @@ var t = TARIFA
                             //   val texto55 = "       "+SALIDA+"\n"
 
 
-                            val texto6 = "PAGO:EFECTIVO   PRECIO:$" +PRECIO+ "\n"
-                           // val texto66 =
-                                //"EFECTIVO" + "                     " + "#" + PRECIO + ".00"
+                            val texto6 = "PAGO:EFECTIVO   PRECIO:$" + PRECIO + "\n"
+                            // val texto66 =
+                            //"EFECTIVO" + "                     " + "#" + PRECIO + ".00"
                             val texto666 =
                                 "PRESENTE IDENTIFICACIÓN ORIGINAL Y VIGENTE AL MOMENTO DE ABORDAR.\n"
                             val texto6666 =
@@ -906,18 +924,18 @@ var t = TARIFA
                                         )
                                     }
                                 }
-                            val bitmapqr =bitmap
+                                val bitmapqr = bitmap
 
                                 outputStream!!.write(
-                                PrintBitmap.POS_PrintBMP(
-                                    bitmapqr,
-                                    380,
-                                    MODE_PRINT_IMG
+                                    PrintBitmap.POS_PrintBMP(
+                                        bitmapqr,
+                                        380,
+                                        MODE_PRINT_IMG
+                                    )
                                 )
-                            )
 
                             } catch (e: Exception) {
-                               val a = e
+                                val a = e
                             }
 
                             outputStream.write("\n".toByteArray())

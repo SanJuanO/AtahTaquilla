@@ -81,7 +81,7 @@ public class MainActivity : AppCompatActivity() {
 
         val bottomNavigation: BottomNavigationView = findViewById(R.id.navigationViewinicio)
         bottomNavigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
-        val vent = Escanear.newInstance()
+        val vent = Infracciones.newInstance()
         openFragment(vent)
 
     }
